@@ -67,6 +67,7 @@ Run the following commands to update all packages and set for future updates:
 * Restart SSH `$ sudo service ssh restart`
 
 ### Configure the Uncomplicated Firewall (UFW)
+
 * Check the current firewall status using `$ sudo ufw status`
 * Deny all incoming requests using `$ sudo ufw default deny incoming`
 * Allow all outgoings using `$ sudo ufw default allow outgoing`
@@ -76,28 +77,27 @@ Run the following commands to update all packages and set for future updates:
 * Close access through port 22 `$ sudo ufw deny 22`
 * Enable firewall using `$ sudo ufw enable`
 * Check the current firewall status using `$ sudo ufw status`. The output should look like this:
-    ```
-    Status: active
+```
+Status: active
 
-    To                         Action      From
-    --                         ------      ----
-    2200/tcp                   ALLOW       Anywhere                  
-    80/tcp                     ALLOW       Anywhere                  
-    123/udp                    ALLOW       Anywhere                  
-    22                         DENY        Anywhere                  
-    2200/tcp (v6)              ALLOW       Anywhere (v6)             
-    80/tcp (v6)                ALLOW       Anywhere (v6)             
-    123/udp (v6)               ALLOW       Anywhere (v6)             
-    22 (v6)                    DENY        Anywhere (v6)
-    ```
-
+To                         Action      From
+--                         ------      ----
+2200/tcp                   ALLOW       Anywhere                  
+80/tcp                     ALLOW       Anywhere                  
+123/udp                    ALLOW       Anywhere                  
+22                         DENY        Anywhere                  
+2200/tcp (v6)              ALLOW       Anywhere (v6)             
+80/tcp (v6)                ALLOW       Anywhere (v6)             
+123/udp (v6)               ALLOW       Anywhere (v6)             
+22 (v6)                    DENY        Anywhere (v6)
+```
 * Update the firewall configuration in your Amazon Lightsail instance by going to the Networking tab.
 * Delete default SSH port 22 and add ports 123 (UDP) and 2200(TCP) in the 'Networking' tab on Lightsail. Your settings should look like the following:
-    ```
-    HTTP      TCP     80
-    Custom    UDP     123
-    Custom    TCP     2200
-    ```
+```
+HTTP      TCP     80
+Custom    UDP     123
+Custom    TCP     2200
+```
 * Exit the SSH connection: `$ exit`
 
 
