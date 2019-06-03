@@ -130,3 +130,11 @@ This prevents attackers from attempting with root:
 * `$ sudo nano /etc/ssh/sshd_config`
 * Find the `PermitRootLogin` line and edit to `no`
 * Restart ssh `$ sudo service ssh restart`
+
+### Install Apache and mod_wsgi
+
+* `$ sudo apt-get install apache2`.
+* Mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications. Install *mod_wsgi* with the following command: `$ sudo apt-get install libapache2-mod-wsgi python-dev`.
+* Enable *mod_wsgi*: `$ sudo a2enmod wsgi`.
+* `$ sudo service apache2 start`.
+* In your browser go to http://35.177.16.5. You should see a Apache2 Ubuntu Default Page if Apache has been correctly configured.
