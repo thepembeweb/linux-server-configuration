@@ -52,4 +52,11 @@ The project has been configured with the below settings:
 * Create a new file in the sudoers directory. `$ sudo nano /etc/sudoers.d/grader` and give 'grader' super permissions `grader ALL=(ALL:ALL) ALL`.
 * To prevent the "sudo: unable to resolve host(none)" error, edit the hosts file `$ sudo nano /etc/hosts`. Under 127.0.0.1:localhost, add `127.0.0.1 YOUR-IP-ADDRESS`.
 
+### Update packages
+Run the following commands to update all packages and set for future updates:
+
+* `$ sudo apt-get update`
+* `$ sudo apt-get upgrade`
+* `$ sudo apt-get dist-upgrade`
+
 
