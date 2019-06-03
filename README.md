@@ -138,3 +138,9 @@ This prevents attackers from attempting with root:
 * Enable *mod_wsgi*: `$ sudo a2enmod wsgi`.
 * `$ sudo service apache2 start`.
 * In your browser go to http://35.177.16.5. You should see a Apache2 Ubuntu Default Page if Apache has been correctly configured.
+
+### Install Git
+
+1. `$ sudo apt-get install git`.
+2. Configure your username: `$ git config --global user.name <username>`.
+3. Configure your email: `$ git config --global user.email <email>`.
