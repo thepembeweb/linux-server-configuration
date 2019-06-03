@@ -141,6 +141,79 @@ This prevents attackers from attempting with root:
 
 ### Install Git
 
-1. `$ sudo apt-get install git`.
-2. Configure your username: `$ git config --global user.name <username>`.
-3. Configure your email: `$ git config --global user.email <email>`.
+* `$ sudo apt-get install git`.
+* Configure your username: `$ git config --global user.name <username>`.
+* Configure your email: `$ git config --global user.email <email>`.
+
+### Configure Apache to Serve Flask Application
+
+* `cd /var/www`
+* `sudo mkdir catalog` - Create catalog directory.
+* `sudo chown -R grader:grader Catalog` - Change owner.
+* `cd catalog`
+* `sudo git clone https://github.com/thepembeweb/item-catalog.git catalog` - Clone git repository and  name it **catalog**.
+* `cd catalog`
+* `mv app.py __init__.py` - Rename app.py file.
+
+**Note:** _Below steps are to make git directory not accessible._
+
+* `cd .git`
+* `sudo nano .htaccess` - Create **.htaccess** file.
+* Enter text `RedirectMatch 404 /\.git` and save the file.
+
+**Note:** _Below steps are to create virtual environment for our Item Catalog App_
+
+* `cd /var/www/catalog/catalog` - cd to catalog project directory which was cloned.
+* `sudo apt-get install python-pip` - Install pip.
+* `sudo pip install virtualenv` - Install virtualenv.
+* `sudo virtualenv venv` - Create virtualenv.
+* `sudo chmod -R 777 venv` - Change virtualenv permission.
+* `source venv/bin/activate` - Activate venv.
+* `sudo pip install Flask` - Install Flask.
+* `sudo pip install requests`
+* `sudo pip install sqlalchemy`
+* `sudo pip install oauth2client`
+* `sudo install psycopg2` - install postgres
+* `deactivate` -  deactivate the virtual environment i.e. **venv**.
+* `sudo nano /etc/apache2/sites-available/catalog.conf` - Configure new Virtual Host.
+* Paste below code into the file:
+
+```xml
+<VirtualHost *:80>
+                ServerName 35.177.16.5
+                ServerAlias ec2-35-177-16-5.eu-west-2.compute.amazonaws.com
+                ServerAdmin admin@35.177.16.5
+                WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+                <Directory /var/www/catalog/catalog/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/catalog/catalog/static
+                <Directory /var/www/catalog/catalog/static/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+**Note:** _Below steps are to create catalog.wsgi and update the file to enable apache serve the Flask App_
+
+* `cd /var/www/catalog`
+* `sudo nano catalog.wsgi` - Create **catalog.wsgi** file.
+* Add below code to the file and save.
+
+```python
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/catalog/")
+
+from Catalog import app as application
+application.secret_key = 'Add your secret key'
+```
+
+* `sudo chown -R grader:grader catalog.wsgi` - Change the owner to **grader**.
