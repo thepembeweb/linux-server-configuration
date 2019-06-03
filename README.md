@@ -245,3 +245,15 @@ from catalog import app as application
 * Add http://ec2-35-177-16-5.eu-west-2.compute.amazonaws.com/oauth2callback as authorized redirect URI
 * Download the corresponding JSON file, open it and copy its contents
 * `$ nano /var/www/catalog/catalog/client_secret.json` and replace the copied contents into this file
+* Update all references of `client_secrets.json` to `/var/www/catalog/catalog/client_secrets.json` in the project 
+
+### Running the app live
+* Generate the database files by running `sudo python setup_database.py`
+* Restart Apache using `$ sudo service apache2 reload`
+* Disable the default Apache page. Run `$ sudo a2dissite 000-default.conf`
+* Restart Apache using `$ sudo service apache2 reload`
+* The application should be live at http://35.177.16.5 or http://ec2-35-177-16-5.eu-west-2.compute.amazonaws.com. 
+
+### Checking error logs
+* If there are internal errors returned, check the Apache error logs by running `$ sudo tail -100 /var/log/apache2/error.log` and resolve the traceback call error(s) it displays.
+
