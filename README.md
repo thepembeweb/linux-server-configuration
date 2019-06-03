@@ -100,4 +100,25 @@ Custom    TCP     2200
 ```
 * Exit the SSH connection: `$ exit`
 
+### Create SSH login for grader user
+
+Open a new(second) Terminal window (Command+N) to generate a public-private key pair.
+
+* Input `$ ssh-keygen -f ~/.ssh/grader.rsa`
+* Input `$ cat ~/.ssh/grader.rsa.pub` to read the public key. Copy its contents.
+
+Return to your original (first) terminal window logged into Amazon Lightsail as the root user.
+
+* Move to grader's folder `$ cd /home/grader`
+* In the grader folder, create an authorized_keys file
+   * `$ mkdir .ssh`
+   * `$ touch .ssh/authorized_keys`
+   * `$ nano .ssh/authorized_keys` and paste the public key you have copied earlier (from the second terminal window). Save.
+
+* Change the ownership and permissions of the .ssh folder to the grader user: `$ chown -R grader.grader /home/grader/.ssh`.
+* Secure your authorized_keys `$ sudo chmod 700 /home/grader/.ssh` and `$ sudo chmod 644 /home/grader/.ssh/authorized_keys`.
+* Restart the SSH service `$ sudo service ssh restart`
+* You should now be able to login as grader user with port 2200 and the generated key pair with the following command: `$ ssh -i ~/.ssh/grader.rsa -p 2200 grader@35.177.16.5`.
+* You will be asked for grader's password. To disable it, `$ sudo nano /etc/ssh/sshd_config`. Find the line `PasswordAuthentication` and change text to no. After this, restart ssh again: `$ sudo service ssh restart`
+
 
