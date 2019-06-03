@@ -30,7 +30,6 @@ The project has been configured with the below settings:
 ## Project Walkthrough
 
 ### Amazon Lightsail Setup
-The project uses VirtualBox, Vagrant, Python and PostgreSQL. 
 
 * Log into AWS Console [RegisteredUsers]('https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fnc2%3Dh_ct%26src%3Dheader-signin%26state%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&forceMobileApp=0'). If not please register to [NewRegistration]('https://portal.aws.amazon.com/billing/signup#/start')
 * Click on **Create Instance**
@@ -45,6 +44,12 @@ The project uses VirtualBox, Vagrant, Python and PostgreSQL.
   1. Move the downloaded LightsailDefaultKey.pem public key file into the local folder ~/.ssh and rename it lightsail.pem
   2. In your terminal, type: chmod 600 ~/.ssh/lightsail.pem . This secures the public key while also making it accessible.
   3. To connect to the instance via the terminal: $ ssh -i ~/.ssh/lightsail.pem ubuntu@35.177.16.5, where 35.177.16.5 is the public IP address of the instance.
-  
-  
+
+### Create user account
+
+* Log into the remote VM as root user through ssh: `$ ssh root@35.177.16.5` where 35.177.16.5 is the public IP address of the instance.
+* Create new user 'grader' `$ sudo adduser grader`
+* Create a new file in the sudoers directory. `$ sudo nano /etc/sudoers.d/grader` and give 'grader' super permissions `grader ALL=(ALL:ALL) ALL`.
+* To prevent the "sudo: unable to resolve host(none)" error, edit the hosts file `$ sudo nano /etc/hosts`. Under 127.0.0.1:localhost, add `127.0.0.1 YOUR-IP-ADDRESS`.
+
 
