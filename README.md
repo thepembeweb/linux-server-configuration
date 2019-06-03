@@ -14,4 +14,4 @@ The Linux Server Configuration project will address the following:
 
 2. How to install and configure a database server.
 
-3. How to deploy an existing web application onto it.
+3. How to deploy an existing web application onto the server.
