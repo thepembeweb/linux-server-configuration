@@ -217,3 +217,24 @@ application.secret_key = 'Add your secret key'
 ```
 
 * `sudo chown -R grader:grader catalog.wsgi` - Change the owner to **grader**.
+
+### Install and Setup Postgres Database
+
+**Note:** _Please make sure you are logged into the instance as grader user_
+
+* `sudo apt-get install postgres` - Install postgres.
+* `sudo su - postgres` - login as a postgres user.
+* `psql` - Connect to shell.
+* `CREATE USER catalog WITH PASSWORD 'catalog';` - Create user catalog.
+* `ALTER USER catalog CREATEDB;` - Change catalog user role to creating database.
+* `CREATE DATABASE catalog with OWNER catalog;` - Create database catalog.
+* `\c catalog` - connect to catalog database.
+* `REVOKE ALL ON SCHEMA public FROM public;` - Revoke rights to all users.
+* `GRANT ALL ON SCHEMA public TO catalog;` - Grant rights to user **catalog** only.
+* `\q` - exit the datatabase.
+* `exit` - logout from postgres user account.
+* `cd /var/www/catalog/catalog/`
+* `sudo nano setup_database.py`
+* Change `create_engine('sqlite:///moviezone.db')` to `create_engine('postgresql://catalog:catalog@localhost/catalog')` and save the file.
+* `sudo nano __init__.py`
+* Change `create_engine('sqlite:///moviezone.db')` to `create_engine('postgresql://catalog:catalog@localhost/catalog')` and save the file.
