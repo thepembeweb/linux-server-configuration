@@ -15,3 +15,15 @@ The Linux Server Configuration project will address the following:
 2. How to install and configure a database server.
 
 3. How to deploy an existing web application onto the server.
+
+## Project Configuration
+
+The project has been configured with the below settings:
+
+* Linux Server Config: Amazon Lightsail Ubuntu 18.04 server image
+* Website URL: http://ec2-35-177-16-5.eu-west-2.compute.amazonaws.com/
+* Server public ip address: 35.177.16.5
+* SSH port: 2200
+* Enabled ports in firewall: 2200, 80 and 123
+* Linux user: grader
+
