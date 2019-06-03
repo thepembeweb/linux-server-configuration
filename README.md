@@ -212,8 +212,7 @@ import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/catalog/")
 
-from Catalog import app as application
-application.secret_key = 'Add your secret key'
+from catalog import app as application
 ```
 
 * `sudo chown -R grader:grader catalog.wsgi` - Change the owner to **grader**.
@@ -238,3 +237,11 @@ application.secret_key = 'Add your secret key'
 * Change `create_engine('sqlite:///moviezone.db')` to `create_engine('postgresql://catalog:catalog@localhost/catalog')` and save the file.
 * `sudo nano __init__.py`
 * Change `create_engine('sqlite:///moviezone.db')` to `create_engine('postgresql://catalog:catalog@localhost/catalog')` and save the file.
+
+### Authenticate login through Google
+* Go to [Google Cloud Platform](https://console.cloud.google.com)
+* On the left menu, hover on `APIs & Services` and click on `Credentials`
+* Create an OAuth Client ID (under the Credentials tab), and add http://35.177.16.5 and http://ec2-35-177-16-5.eu-west-2.compute.amazonaws.com as authorized JavaScript origins
+* Add http://ec2-35-177-16-5.eu-west-2.compute.amazonaws.com/oauth2callback as authorized redirect URI
+* Download the corresponding JSON file, open it and copy its contents
+* `$ nano /var/www/catalog/catalog/client_secret.json` and replace the copied contents into this file
