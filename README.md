@@ -59,4 +59,10 @@ Run the following commands to update all packages and set for future updates:
 * `$ sudo apt-get upgrade`
 * `$ sudo apt-get dist-upgrade`
 
+### Change the SSH port to access your instance
+   * Open up the configuration file: `$ sudo nano /etc/ssh/sshd_config`
+   * Look for port number (on line 5) and change this from `22` to `2200`
+   * Save and exit using `CTRL+X`, confirm with `Y`
+   * Restart SSH `$ sudo service ssh restart`
+
 
