@@ -124,3 +124,9 @@ Return to your original (first) terminal window logged into Amazon Lightsail as 
 * Open time configuration dialog and set it to UTC with: `$ sudo dpkg-reconfigure tzdata`
 * Select `None of the above` to change the timezone to UTC.
 * Install ntp daemon ntpd for a better synchronization of the server's time over the network connection: `$ sudo apt-get install ntp`.
+
+### Disable SSH for root user
+This prevents attackers from attempting with root:
+* `$ sudo nano /etc/ssh/sshd_config`
+* Find the `PermitRootLogin` line and edit to `no`
+* Restart ssh `$ sudo service ssh restart`
