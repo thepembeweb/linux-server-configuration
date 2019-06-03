@@ -4,7 +4,7 @@
 
 ![](https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg)
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ubuntu_logo.svg/500px-Ubuntu_logo.svg.png)
+![](https://upload.wikimedia.org/wikipedia/commons/9/9d/Ubuntu_logo.svg)
 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
