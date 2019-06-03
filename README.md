@@ -5,6 +5,7 @@
 ![](https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg) 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo-ubuntu_cof-orange-hex.svg/200px-Logo-ubuntu_cof-orange-hex.svg.png)
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png)
+
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 The Linux Server Configuration project will address the following:
