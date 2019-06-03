@@ -180,22 +180,22 @@ This prevents attackers from attempting with root:
 
 ```xml
 <VirtualHost *:80>
-                ServerName 35.177.16.5
-                ServerAlias ec2-35-177-16-5.eu-west-2.compute.amazonaws.com
-                ServerAdmin admin@35.177.16.5
-                WSGIScriptAlias / /var/www/catalog/catalog.wsgi
-                <Directory /var/www/catalog/catalog/>
-                        Order allow,deny
-                        Allow from all
-                </Directory>
-                Alias /static /var/www/catalog/catalog/static
-                <Directory /var/www/catalog/catalog/static/>
-                        Order allow,deny
-                        Allow from all
-                </Directory>
-                ErrorLog ${APACHE_LOG_DIR}/error.log
-                LogLevel warn
-                CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ServerName 35.177.16.5
+    ServerAlias ec2-35-177-16-5.eu-west-2.compute.amazonaws.com
+    ServerAdmin admin@35.177.16.5
+    WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+    <Directory /var/www/catalog/catalog/>
+            Order allow,deny
+            Allow from all
+    </Directory>
+    Alias /static /var/www/catalog/catalog/static
+    <Directory /var/www/catalog/catalog/static/>
+            Order allow,deny
+            Allow from all
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
 
