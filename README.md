@@ -257,3 +257,20 @@ from catalog import app as application
 ### Checking error logs
 * If there are internal errors returned, check the Apache error logs by running `$ sudo tail -100 /var/log/apache2/error.log` and resolve the traceback call error(s) it displays.
 
+## Built With
+
+* [Amazon Lightsail](https://lightsail.aws.amazon.com/) - The web hosting service used
+* [Python](https://www.python.org/) - The framework used
+* [PostgreSQL](https://www.postgresql.org/) - The database used
+
+## Authors
+
+* **[Pemberai Sweto](https://github.com/thepembeweb)** - *Initial work* - [Linux Server Configuration](https://github.com/thepembeweb/linux-server-configuration)
+
+## License
+
+[![License](http://img.shields.io/:license-mit-green.svg?style=flat-square)](http://badges.mit-license.org)
+
+- This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+- Copyright 2019 © [Pemberai Sweto](https://github.com/thepembeweb).
+
